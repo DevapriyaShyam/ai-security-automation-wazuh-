@@ -1,0 +1,18 @@
+services:
+  ai-engine:
+    image: python:3.10
+    container_name: ai_engine
+    volumes:
+     - ./app:/app
+     - ./shared:/shared
+    working_dir: /app
+    command: python ai_engine.py
+
+  remediation:
+    image: python:3.10
+    container_name: remediation_engine
+    volumes:
+     - ./app:/app
+     - ./shared:/shared
+    working_dir: /app
+    command: python remediation.py
